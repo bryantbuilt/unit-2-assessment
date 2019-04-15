@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Unit 2 Assignment</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1>To Do List</h1>
+    <% if (todos.length == 0) { %>
+      <p>There are no To Dos yet!</p>
+    <% } else { %>
+      <ul>
+        <% for (item in todos) { %>
+        <li><%= todos[item].todo %> - <% if (todos[item].done == false) { %>Not Done<% } %></li>
+        <% } %>
+      </ul>
+    <% } %>
+    <hr>
+    <form action="/todos" method="POST">
+      <input id="todo_name" type="text" name="todoName" placeholder="New Todo">
+      <input type="submit" value="Add Todo">
+    </form>
+  </body>
+</html>
